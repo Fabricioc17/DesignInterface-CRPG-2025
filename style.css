@@ -26,26 +26,7 @@ header h2 {
 header nav {
     margin-top: 10px;
 }
-/* Todas as imagens do site */
-img {
-  width: 100%;              /* ocupa toda a largura do container */
-  max-width: 300px;         /* limite para não ficarem gigantes */
-  height: 200px;            /* altura fixa para padronizar */
-  object-fit: cover;        /* corta e centraliza sem distorcer */
-  object-position: center;  /* mostra o centro da imagem */
-  border-radius: 12px;      /* cantos arredondados */
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* sombra bonita */
-  margin: 10px;             /* espaço entre imagens */
-  display: block;           /* evita espaço estranho embaixo */
-}
 
-/* Se tu tiver uma galeria ou grid */
-.galeria {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px; /* espaço entre as imagens */
-}
 
 
 header nav a {
@@ -184,3 +165,33 @@ footer {
     transform: scale(1.05);
     box-shadow: 0 6px 16px rgba(0,0,0,0.4);
 }
+/* ===== Imagens uniformes ===== */
+img {
+  width: 100%;             /* imagem ocupa toda largura do container pai */
+  max-width: 300px;        /* limite máximo de largura para evitar ficar enorme */
+  height: 200px;           /* altura fixa para que todas fiquem consistentes */
+  object-fit: cover;       /* recorta se for maior, mantendo proporção */
+  object-position: center; /* centraliza a parte visível da imagem */
+  border-radius: 8px;      /* cantos arredondados — ajusta o valor se quiser mais ou menos */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* sombra suave pra dar profundidade */
+  margin: 10px;            /* espaço ao redor das imagens */
+  display: block;          /* evita espaço em baixo da imagem por linha-base */
+}
+
+/* Se tiver uma galeria ou classe específica para o container das imagens */
+.galeria, .gallery, .imagens-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px; /* espaço entre imagens */
+}
+
+/* Ajuste responsivo para telas menores */
+@media (max-width: 600px) {
+  img {
+    height: 150px;
+    max-width: 90%;
+    margin: 5px;
+  }
+}
+
