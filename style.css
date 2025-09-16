@@ -165,33 +165,55 @@ footer {
     transform: scale(1.05);
     box-shadow: 0 6px 16px rgba(0,0,0,0.4);
 }
-/* ===== Imagens uniformes ===== */
-img {
-  width: 100%;             /* imagem ocupa toda largura do container pai */
-  max-width: 300px;        /* limite máximo de largura para evitar ficar enorme */
-  height: 200px;           /* altura fixa para que todas fiquem consistentes */
-  object-fit: cover;       /* recorta se for maior, mantendo proporção */
-  object-position: center; /* centraliza a parte visível da imagem */
-  border-radius: 8px;      /* cantos arredondados — ajusta o valor se quiser mais ou menos */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* sombra suave pra dar profundidade */
-  margin: 10px;            /* espaço ao redor das imagens */
-  display: block;          /* evita espaço em baixo da imagem por linha-base */
-}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galeria Horizontal</title>
+  <style>
+    /* ===== Estilos gerais ===== */
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f8f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
 
-/* Se tiver uma galeria ou classe específica para o container das imagens */
-.galeria, .gallery, .imagens-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px; /* espaço entre imagens */
-}
+    /* ===== Container da galeria ===== */
+    .galeria {
+      display: flex;            /* coloca lado a lado */
+      flex-direction: row;      /* direção horizontal */
+      justify-content: center;  /* centraliza no meio da tela */
+      gap: 20px;                /* espaço entre imagens */
+    }
 
-/* Ajuste responsivo para telas menores */
-@media (max-width: 600px) {
-  img {
-    height: 150px;
-    max-width: 90%;
-    margin: 5px;
-  }
-}
+    /* ===== Imagens ===== */
+    .galeria img {
+      width: 300px;             /* largura fixa */
+      height: 200px;            /* altura fixa */
+      object-fit: cover;        /* corta sem distorcer */
+      border-radius: 12px;      /* cantos arredondados */
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* sombra bonita */
+    }
 
+    /* ===== Responsivo para celular ===== */
+    @media (max-width: 900px) {
+      .galeria {
+        flex-direction: column; /* em telas pequenas, fica uma embaixo da outra */
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="galeria">
+    <img src="img/foto1.jpg" alt="Foto 1">
+    <img src="img/foto2.jpg" alt="Foto 2">
+    <img src="img/foto3.jpg" alt="Foto 3">
+  </div>
+</body>
+</html>
