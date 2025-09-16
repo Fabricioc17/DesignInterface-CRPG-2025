@@ -170,50 +170,43 @@ footer {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Galeria Horizontal</title>
+  <title>3 Imagens em Linha</title>
   <style>
-    /* ===== Estilos gerais ===== */
+    /* Reset básico */
     body {
-      font-family: Arial, sans-serif;
-      background: #f8f8f8;
+      margin: 0;
+      padding: 0;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      margin: 0;
+      background: #f0f0f0;
     }
 
-    /* ===== Container da galeria ===== */
+    /* Container das imagens */
     .galeria {
-      display: flex;            /* coloca lado a lado */
-      flex-direction: row;      /* direção horizontal */
-      justify-content: center;  /* centraliza no meio da tela */
-      gap: 20px;                /* espaço entre imagens */
+      display: flex;          /* coloca lado a lado */
+      flex-direction: row;    /* garante horizontal */
+      gap: 20px;              /* espaço entre as imagens */
+      justify-content: center;
+      align-items: center;
     }
 
-    /* ===== Imagens ===== */
+    /* Estilo das imagens */
     .galeria img {
-      width: 300px;             /* largura fixa */
-      height: 200px;            /* altura fixa */
-      object-fit: cover;        /* corta sem distorcer */
-      border-radius: 12px;      /* cantos arredondados */
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* sombra bonita */
-    }
-
-    /* ===== Responsivo para celular ===== */
-    @media (max-width: 900px) {
-      .galeria {
-        flex-direction: column; /* em telas pequenas, fica uma embaixo da outra */
-        align-items: center;
-      }
+      width: 300px;           /* largura fixa */
+      height: 200px;          /* altura fixa */
+      object-fit: cover;      /* corta sem distorcer */
+      border-radius: 12px;    /* cantos arredondados */
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
   </style>
 </head>
 <body>
   <div class="galeria">
-    <img src="img/foto1.jpg" alt="Foto 1">
-    <img src="img/foto2.jpg" alt="Foto 2">
-    <img src="img/foto3.jpg" alt="Foto 3">
+    <img src="https://picsum.photos/id/1015/600/400" alt="Foto 1">
+    <img src="https://picsum.photos/id/1016/600/400" alt="Foto 2">
+    <img src="https://picsum.photos/id/1018/600/400" alt="Foto 3">
   </div>
 </body>
 </html>
