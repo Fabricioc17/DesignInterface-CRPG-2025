@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -25,20 +26,55 @@
     <main>
         <h1>Bem-vindo ao restaurante sem grútem. </h1>
         <p>Encontre a comida ideal para você. </p>
+        <script>
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzCx4snGkNSx2LSuG89VPoqFVlG1y4YjESR5700WHFrnBFZCeXpS7y9OXQU795MewxieQ/exec; // substitua pela URL do seu Apps Script
+async function carregarConteudo() {
+  const container = document.getElementById('conteudo');
+  container.innerHTML = "<p>Carregando conteúdo...</p>";
 
-        <div class="carros">
-            <img src="https://p2.trrsf.com/image/fget/cf/940/0/images.terra.com/2022/10/06/1801090797-coxinha-sem-gluten.jpg"
-                alt="Carro esportivo vermelho">
+  try {
+    const res = await fetch(SCRIPT_URL);
+    const dados = await res.json();
+    container.innerHTML = '';
 
-            <img src="https://viverbem.unimed.coop.br/wp-content/uploads/2024/11/e4107170-cc14-4259-9a52-3a59185c65b8.jpeg"
-                alt="SUV preto">
+    dados.forEach(item => {
+      const bloco = document.createElement('div');
+      bloco.className = 'bloco-item';
 
-            <img src="https://p2.trrsf.com/image/fget/cf/940/0/images.terra.com/2022/10/06/1378191408-nhoque-sem-gluten.jpg"
-                alt="Carro branco">
-                
-        </div>
-    </main>
+      const titulo = document.createElement('h2');
+      titulo.textContent = item.Título || '';
+      bloco.appendChild(titulo);
 
+      const descricao = document.createElement('p');
+      descricao.textContent = item.Descrição || '';
+      bloco.appendChild(descricao);
+
+      if (item.Url && item.Url.startsWith('http')) {
+        if (item.Url.match(/\.(jpg|jpeg|png|gif|webp)$/i) || item.Url.includes('unsplash')) {
+          const img = document.createElement('img');
+          img.src = item.Url;
+          img.alt = item.Título || 'Imagem';
+          bloco.appendChild(img);
+        } else {
+          const link = document.createElement('a');
+          link.href = item.Url;
+          link.textContent = 'Ver mais';
+          bloco.appendChild(link);
+        }
+      }
+
+      container.appendChild(bloco);
+    });
+  } catch (err) {
+    container.innerHTML = "<p>Erro ao carregar dados: " + err.message + "</p>";
+  }
+}
+
+carregarConteudo();
+</script>
+
+
+        
     <!-- Rodapé -->
     <footer>
         <p>&copy; 2025 Restaurante - Faça sua reserva. </p>
