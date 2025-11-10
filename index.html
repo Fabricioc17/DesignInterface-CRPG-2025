@@ -31,7 +31,43 @@
       </main>
       
       <script>
-          const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxb_0R5j2oqRRONz2d9JLqRSAf45Q9gSHHmIjC-D3FA8JTP9gV6LxLgsg3L27yYt2DGMg/exec"; // substitua pela URL do seu Apps Script
+          const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzTynkSxyAc1jn6QO2KgYj-In0BjoOYE0kcujm6FEHaACiQpAlBgpxf8ND0ziPkf9Gmow/exec" function doGet(e) {
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("ConteúdoSite");
+  var data = sheet.getDataRange().getValues();
+ 
+  var headers = data.shift();
+  var jsonData = [];
+ 
+  data.forEach(function(row) {
+    var item = {};
+    headers.forEach(function(header, i) {
+      item[header] = row[i];
+    });
+    jsonData.push(item);
+  });
+ 
+  return ContentService
+    .createTextOutput(JSON.stringify(jsonData))
+    .setMimeType(ContentService.MimeType.JSON);
+}"function doGet(e) {
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("ConteúdoSite");
+  var data = sheet.getDataRange().getValues();
+ 
+  var headers = data.shift();
+  var jsonData = [];
+ 
+  data.forEach(function(row) {
+    var item = {};
+    headers.forEach(function(header, i) {
+      item[header] = row[i];
+    });
+    jsonData.push(item);
+  });
+ 
+  return ContentService
+    .createTextOutput(JSON.stringify(jsonData))
+    .setMimeType(ContentService.MimeType.JSON);
+}"; // substitua pela URL do seu Apps Script
 
       
       async function carregarConteudo() {
