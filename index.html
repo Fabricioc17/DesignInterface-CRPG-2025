@@ -22,8 +22,8 @@
     </header>
 
     <main>
-        <h1>Bem-Vindo a lanchonete.</h1>
-        <p>Faça seu pedido.</p>
+        <h1>Bem-vindo à Locadora de Veículos</h1>
+        <p>Encontre o carro ideal para sua viagem, trabalho ou lazer.</p>
       
         <div id="conteudo" class="conteudo-scroll">
           <p>Carregando conteúdo...</p>
@@ -31,44 +31,7 @@
       </main>
       
       <script>
-          const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzhBWEulqm1fPpRSEjqIq9Gz2BdmA9jn3-yOOnGJnKvWoLDX5y4sADGOKK6dDWP7Ro9Fw/exec" function doGet(e) {
-  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("cr7");
-  var data = sheet.getDataRange().getValues();
- 
-  var headers = data.shift();
-  var jsonData = [];
- 
-  data.forEach(function(row) {
-    var item = {};
-    headers.forEach(function(header, i) {
-      item[header] = row[i];
-    });
-    jsonData.push(item);
-  });
- 
-  return ContentService
-    .createTextOutput(JSON.stringify(jsonData))
-    .setMimeType(ContentService.MimeType.JSON);
-}"function doGet(e) {
-  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("ConteúdoSite");
-  var data = sheet.getDataRange().getValues();
- 
-  var headers = data.shift();
-  var jsonData = [];
- 
-  data.forEach(function(row) {
-    var item = {};
-    headers.forEach(function(header, i) {
-      item[header] = row[i];
-    });
-    jsonData.push(item);
-  });
- 
-  return ContentService
-    .createTextOutput(JSON.stringify(jsonData))
-    .setMimeType(ContentService.MimeType.JSON);
-}"; // substitua pela URL do seu Apps Script
-
+      const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwKRgyC5MtrxTGLVpRAsVx2eVidt0kF-1yDMjpmNgxltBuj6uR5Ow12wAaSlaKPBmRx/exec"; // substitua pela URL do seu Apps Script
       
       async function carregarConteudo() {
         const container = document.getElementById('conteudo');
