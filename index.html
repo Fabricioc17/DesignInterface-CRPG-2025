@@ -34,6 +34,21 @@
       </main>
       
       <script>
+          <script>
+  const toggle = document.getElementById("tema-toggle");
+  const body = document.body;
+
+  // Carregar tema salvo
+  let tema = localStorage.getItem("tema") || "tema-claro";
+  if (tema === "tema-escuro") body.classList.add("tema-escuro");
+
+  toggle.addEventListener("click", () => {
+    body.classList.toggle("tema-escuro");
+
+    const ativo = body.classList.contains("tema-escuro");
+    localStorage.setItem("tema", ativo ? "tema-escuro" : "tema-claro");
+  });
+</script>
       const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbycM6OW6cpcdlx0FpJgxN8bRBjn_YpUyTdn1VuNyQHvJ5KmXcaM90rRCBUYVCXEyD0G_g/exec"; // substitua pela URL do seu Apps Script
       
       async function carregarConteudo() {
